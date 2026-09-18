@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Consultar Folio</title>
+
+    <link rel="stylesheet" href="stylecita.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="encabezado">
+
+    <div class="logo">
+
+        <span class="logo-m">M</span>
+
+        <span class="logo-l">L</span>
+
+    </div>
+
+
+    <nav class="navegacion">
+
+        <a href="index.html">
+            Inicio
+        </a>
+
+        <a href="sobrenosotros.html">
+            Sobre nosotros
+        </a>
+
+        <a href="serviciosnuestros.html" class="activo">
+            Servicios
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="pagina-folio">
+
+
+    <section class="tarjeta-folio">
+
+
+        <div class="icono-folio">
+            ML
+        </div>
+
+
+        <p class="subtitulo-folio">
+            CONSULTA DE SOLICITUD
+        </p>
+
+
+        <h1>
+            Consulta tu folio
+        </h1>
+
+
+        <p class="mensaje-folio">
+            Ingresa el folio que recibiste al solicitar tu
+            asesoría para consultar los datos de tu cita.
+        </p>
+
+
+
+        <!-- FORMULARIO DE FOLIO -->
+
+        <form id="formularioFolio">
+
+
+            <div class="campo-formulario">
+
+                <label for="folio">
+                    Número de folio
+                </label>
+
+                <input
+                    type="text"
+                    id="folio"
+                    name="folio"
+                    placeholder="Ej. ML-JPL-1503-170926-001"
+                    required
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="boton-formulario">
+
+                <button type="submit">
+                    Consultar folio
+                </button>
+
+            </div>
+
+
+        </form>
+
+
+
+        <!-- RESULTADO -->
+
+        <div
+            id="resultadoFolio"
+            class="resultado-folio"
+            style="display:none;"
+        >
+
+
+            <div class="contenedor-numero-folio">
+
+                <span>
+                    FOLIO
+                </span>
+
+                <strong id="folioResultado">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <div class="datos-cita-folio">
+
+
+                <div class="dato-cita">
+
+                    <span>
+                        SOLICITANTE
+                    </span>
+
+                    <strong id="resultadoNombre">
+                        -
+                    </strong>
+
+                </div>
+
+
+
+                <div class="dato-cita">
+
+                    <span>
+                        FECHA DE LA CITA
+                    </span>
+
+                    <strong id="resultadoFecha">
+                        -
+                    </strong>
+
+                </div>
+
+
+
+                <div class="dato-cita">
+
+                    <span>
+                        HORA DE LA CITA
+                    </span>
+
+                    <strong id="resultadoHora">
+                        -
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- MENSAJE DE ERROR -->
+
+        <p
+            id="mensajeErrorFolio"
+            class="mensaje-error-folio"
+            style="display:none;"
+        >
+            El folio no fue encontrado.
+        </p>
+
+
+
+        <p class="aviso-folio">
+
+            Si todavía no tienes un folio,
+            puedes solicitar una cita.
+
+        </p>
+
+
+
+        <div class="acciones-folio">
+
+
+            <a
+                href="cita.html"
+                class="boton-folio principal"
+            >
+                Solicitar una cita
+            </a>
+
+
+            <a
+                href="index.html"
+                class="boton-folio secundario"
+            >
+                Página principal
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<footer class="pie-pagina">
+
+    <p>
+        © 2026 Despacho de Abogados.
+        Todos los derechos reservados.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+
+// ========================================
+// FORMULARIO DE CONSULTA
+// ========================================
+
+document
+.getElementById("formularioFolio")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    // ========================================
+    // OBTENER FOLIO INGRESADO
+    // ========================================
+
+    const folioIngresado =
+        document
+        .getElementById("folio")
+        .value
+        .trim()
+        .toUpperCase();
+
+
+    // ========================================
+    // OBTENER FOLIO GUARDADO
+    // ========================================
+
+    const folioGuardado =
+        localStorage.getItem("folioActual");
+
+
+    // ========================================
+    // ELEMENTOS
+    // ========================================
+
+    const resultado =
+        document.getElementById("resultadoFolio");
+
+    const error =
+        document.getElementById("mensajeErrorFolio");
+
+
+    // ========================================
+    // OCULTAR MENSAJES
+    // ========================================
+
+    resultado.style.display = "none";
+
+    error.style.display = "none";
+
+
+    // ========================================
+    // COMPROBAR FOLIO
+    // ========================================
+
+    if (
+        folioGuardado &&
+        folioIngresado === folioGuardado.toUpperCase()
+    ) {
+
+
+        // ------------------------------------
+        // OBTENER DATOS
+        // ------------------------------------
+
+        const nombre =
+            localStorage.getItem("nombreCita");
+
+        const fecha =
+            localStorage.getItem("fechaCita");
+
+        const hora =
+            localStorage.getItem("horaCita");
+
+
+        // ------------------------------------
+        // MOSTRAR FOLIO
+        // ------------------------------------
+
+        document
+        .getElementById("folioResultado")
+        .textContent =
+            folioGuardado;
+
+
+        // ------------------------------------
+        // MOSTRAR NOMBRE
+        // ------------------------------------
+
+        document
+        .getElementById("resultadoNombre")
+        .textContent =
+            nombre || "No disponible";
+
+
+        // ------------------------------------
+        // FORMATEAR FECHA
+        // ------------------------------------
+
+        if (fecha) {
+
+            const partes =
+                fecha.split("-");
+
+
+            const año =
+                partes[0];
+
+            const mes =
+                parseInt(partes[1]);
+
+            const dia =
+                parseInt(partes[2]);
+
+
+            const meses = [
+
+                "enero",
+                "febrero",
+                "marzo",
+                "abril",
+                "mayo",
+                "junio",
+                "julio",
+                "agosto",
+                "septiembre",
+                "octubre",
+                "noviembre",
+                "diciembre"
+
+            ];
+
+
+            document
+            .getElementById("resultadoFecha")
+            .textContent =
+                `${dia} de ${meses[mes - 1]} de ${año}`;
+
+        }
+
+
+        // ------------------------------------
+        // FORMATEAR HORA
+        // ------------------------------------
+
+        if (hora) {
+
+            const partesHora =
+                hora.split(":");
+
+
+            let horas =
+                parseInt(partesHora[0]);
+
+            const minutos =
+                partesHora[1];
+
+
+            const periodo =
+                horas >= 12 ? "PM" : "AM";
+
+
+            if (horas === 0) {
+
+                horas = 12;
+
+            }
+            else if (horas > 12) {
+
+                horas -= 12;
+
+            }
+
+
+            document
+            .getElementById("resultadoHora")
+            .textContent =
+                `${horas}:${minutos} ${periodo}`;
+
+        }
+
+
+        // ------------------------------------
+        // MOSTRAR RESULTADO
+        // ------------------------------------
+
+        resultado.style.display = "block";
+
+
+    }
+    else {
+
+
+        // ====================================
+        // FOLIO NO ENCONTRADO
+        // ====================================
+
+        error.style.display = "block";
+
+    }
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
+```

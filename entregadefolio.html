@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solicitud registrada</title>
+
+    <link rel="stylesheet" href="stylecita.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+
+<header class="encabezado">
+
+    <div class="logo">
+
+        <span class="logo-m">M</span>
+
+        <span class="logo-l">L</span>
+
+    </div>
+
+
+    <nav class="navegacion">
+
+        <a href="index.html">
+            Inicio
+        </a>
+
+        <a href="sobrenosotros.html">
+            Sobre nosotros
+        </a>
+
+        <a href="serviciosnuestros.html" class="activo">
+            Servicios
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="pagina-folio">
+
+
+    <section class="tarjeta-folio">
+
+
+        <div class="icono-folio">
+            ✓
+        </div>
+
+
+        <p class="subtitulo-folio">
+            ASESORÍA LEGAL
+        </p>
+
+
+        <h1>
+            ¡Tu solicitud ha sido registrada!
+        </h1>
+
+
+        <p class="mensaje-folio">
+            Hemos recibido correctamente los datos de tu solicitud.
+            Conserva tu folio para futuras consultas.
+        </p>
+
+
+
+        <!-- FOLIO -->
+
+        <div class="contenedor-numero-folio">
+
+            <span>
+                TU FOLIO DE SOLICITUD
+            </span>
+
+            <strong id="numeroFolio">
+                Cargando...
+            </strong>
+
+        </div>
+
+
+
+        <!-- DATOS DE LA CITA -->
+
+        <div class="datos-cita-folio">
+
+
+            <div class="dato-cita">
+
+                <span>
+                    SOLICITANTE
+                </span>
+
+                <strong id="nombreCita">
+                    Cargando...
+                </strong>
+
+            </div>
+
+
+
+            <div class="dato-cita">
+
+                <span>
+                    FECHA DE LA CITA
+                </span>
+
+                <strong id="fechaCita">
+                    Cargando...
+                </strong>
+
+            </div>
+
+
+
+            <div class="dato-cita">
+
+                <span>
+                    HORA DE LA CITA
+                </span>
+
+                <strong id="horaCita">
+                    Cargando...
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+
+        <p class="aviso-folio">
+
+            Guarda tu folio. Lo necesitarás para consultar
+            posteriormente el estado de tu solicitud.
+
+        </p>
+
+
+
+        <div class="acciones-folio">
+
+
+            <a
+                href="index.html"
+                class="boton-folio principal"
+            >
+                Página principal
+            </a>
+
+
+            <a
+                href="yatengofolio.html"
+                class="boton-folio secundario"
+            >
+                Consultar con mi folio
+            </a>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<footer class="pie-pagina">
+
+    <p>
+        © 2026 Despacho de Abogados.
+        Todos los derechos reservados.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+
+// ========================================
+// RECUPERAR INFORMACIÓN
+// ========================================
+
+const folio =
+    localStorage.getItem("folioActual");
+
+
+const nombre =
+    localStorage.getItem("nombreCita");
+
+
+const fecha =
+    localStorage.getItem("fechaCita");
+
+
+const hora =
+    localStorage.getItem("horaCita");
+
+
+
+// ========================================
+// MOSTRAR FOLIO
+// ========================================
+
+document.getElementById("numeroFolio").textContent =
+    folio || "No disponible";
+
+
+
+// ========================================
+// MOSTRAR NOMBRE
+// ========================================
+
+document.getElementById("nombreCita").textContent =
+    nombre || "No disponible";
+
+
+
+// ========================================
+// FORMATEAR FECHA
+// ========================================
+
+if (fecha) {
+
+    const partes =
+        fecha.split("-");
+
+    const año =
+        partes[0];
+
+    const mes =
+        parseInt(partes[1]);
+
+    const dia =
+        partes[2];
+
+
+    const nombresMeses = [
+
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviembre",
+        "diciembre"
+
+    ];
+
+
+    const fechaFormateada =
+        `${parseInt(dia)} de ${nombresMeses[mes - 1]} de ${año}`;
+
+
+    document.getElementById("fechaCita").textContent =
+        fechaFormateada;
+
+} else {
+
+    document.getElementById("fechaCita").textContent =
+        "No disponible";
+
+}
+
+
+
+// ========================================
+// FORMATEAR HORA
+// ========================================
+
+if (hora) {
+
+    const partesHora =
+        hora.split(":");
+
+    let horas =
+        parseInt(partesHora[0]);
+
+    const minutos =
+        partesHora[1];
+
+    const periodo =
+        horas >= 12 ? "PM" : "AM";
+
+
+    if (horas === 0) {
+
+        horas = 12;
+
+    } else if (horas > 12) {
+
+        horas -= 12;
+
+    }
+
+
+    document.getElementById("horaCita").textContent =
+        `${horas}:${minutos} ${periodo}`;
+
+} else {
+
+    document.getElementById("horaCita").textContent =
+        "No disponible";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
+
+

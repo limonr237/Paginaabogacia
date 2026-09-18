@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contacto | Despacho de Abogados</title>
+
+<link rel="stylesheet" href="contacto.css">
+
+
+</head>
+
+<body>
+
+
+<!-- ================= ENCABEZADO ================= -->
+
+<header class="encabezado">
+
+    <div class="logo">
+
+        <span class="logo-m">M</span>
+        <span class="logo-l">L</span>
+
+    </div>
+
+
+    <nav class="navegacion">
+
+        <a href="index.html">Inicio</a>
+
+        <a href="sobrenosotros.html">Sobre nosotros</a>
+
+        <a href="serviciosnuestros.html">Servicios</a>
+
+        <a href="testimonios.html">Testimonios</a>
+
+        <a href="contacto.html" class="activo">Contacto</a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- ================= PRESENTACIÓN ================= -->
+
+<main>
+
+
+    <section class="contacto-presentacion">
+
+        <div class="contacto-contenido">
+
+            <span class="contacto-etiqueta">
+                CONTACTO
+            </span>
+
+            <h1>
+                Estamos para escucharte
+            </h1>
+
+            <p>
+                Si necesitas orientación jurídica, deseas conocer nuestros
+                servicios o tienes alguna pregunta, puedes ponerte en
+                contacto con nosotros.
+            </p>
+
+            <p>
+                Nuestro equipo atenderá tu solicitud y te proporcionará
+                información sobre los siguientes pasos.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= INFORMACIÓN DE CONTACTO ================= -->
+
+    <section class="informacion-contacto">
+
+        <div class="contacto-titulo">
+
+            <span>
+                PONTE EN CONTACTO
+            </span>
+
+            <h2>
+                Hablemos de tu caso
+            </h2>
+
+        </div>
+
+
+        <div class="contacto-tarjetas">
+
+
+            <!-- TELÉFONO -->
+
+            <div class="contacto-tarjeta">
+
+                <div class="contacto-icono">
+                    ☎
+                </div>
+
+                <h3>
+                    Teléfono
+                </h3>
+
+                <p>
+                    Próximamente
+                </p>
+
+            </div>
+
+
+
+            <!-- WHATSAPP -->
+
+            <div class="contacto-tarjeta">
+
+                <div class="contacto-icono">
+                    💬
+                </div>
+
+                <h3>
+                    WhatsApp
+                </h3>
+
+                <p>
+                    Próximamente
+                </p>
+
+            </div>
+
+
+
+            <!-- CORREO -->
+
+            <div class="contacto-tarjeta">
+
+                <div class="contacto-icono">
+                    ✉
+                </div>
+
+                <h3>
+                    Correo electrónico
+                </h3>
+
+                <p>
+                    Próximamente
+                </p>
+
+            </div>
+
+
+
+            <!-- HORARIO -->
+
+            <div class="contacto-tarjeta">
+
+                <div class="contacto-icono">
+                    ◷
+                </div>
+
+                <h3>
+                    Horario de atención
+                </h3>
+
+                <p>
+                    Próximamente
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FORMULARIO ================= -->
+
+    <section class="formulario-contacto">
+
+
+        <div class="formulario-introduccion">
+
+            <span>
+                ENVÍANOS UN MENSAJE
+            </span>
+
+            <h2>
+                ¿Cómo podemos ayudarte?
+            </h2>
+
+            <p>
+                Completa el siguiente formulario y nos pondremos en
+                contacto contigo.
+            </p>
+
+        </div>
+
+
+
+        <form class="form-contacto">
+
+
+            <div class="campo-formulario">
+
+                <label for="nombre">
+                    Nombre completo
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Escribe tu nombre completo"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="fila-formulario">
+
+
+                <div class="campo-formulario">
+
+                    <label for="correo">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="ejemplo@correo.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="campo-formulario">
+
+                    <label for="telefono">
+                        Número telefónico
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="Tu número telefónico"
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="campo-formulario">
+
+                <label for="motivo">
+                    Motivo de contacto
+                </label>
+
+                <select id="motivo" name="motivo" required>
+
+                    <option value="">
+                        Selecciona una opción
+                    </option>
+
+                    <option value="asesoria">
+                        Solicitar asesoría legal
+                    </option>
+
+                    <option value="cita">
+                        Información sobre una cita
+                    </option>
+
+                    <option value="servicios">
+                        Información sobre servicios
+                    </option>
+
+                    <option value="otro">
+                        Otro asunto
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="campo-formulario">
+
+                <label for="mensaje">
+                    Mensaje
+                </label>
+
+                <textarea
+                    id="mensaje"
+                    name="mensaje"
+                    rows="7"
+                    placeholder="Escribe brevemente el motivo de tu consulta"
+                    required
+                ></textarea>
+
+            </div>
+
+
+
+            <div class="aviso-formulario">
+
+                <p>
+                    Al enviar este formulario aceptas que los datos
+                    proporcionados sean utilizados exclusivamente para
+                    atender tu solicitud de contacto, de conformidad con
+                    nuestro aviso de privacidad.
+                </p>
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="boton-enviar"
+            >
+                Enviar mensaje
+            </button>
+
+
+        </form>
+
+    </section>
+
+
+
+    <!-- ================= UBICACIÓN ================= -->
+
+    <section class="ubicacion-contacto">
+
+
+        <div class="ubicacion-contenido">
+
+            <span>
+                NUESTRA UBICACIÓN
+            </span>
+
+            <h2>
+                Visítanos
+            </h2>
+
+            <p>
+                Próximamente podrás consultar aquí nuestra ubicación y
+                conocer cómo llegar a nuestras oficinas.
+            </p>
+
+        </div>
+
+
+      <div class="mapa-contacto">
+
+    <iframe
+        src="https://www.google.com/maps?q=Av.+Benito+Juárez+Sur+9-A,+San+Cristóbal+Centro,+55000+Ecatepec+de+Morelos,+México&output=embed"
+        width="100%"
+        height="350"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+
+</div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="pie-pagina">
+
+    <div class="footer-contenido">
+
+        <div class="footer-logo">
+
+            <span class="logo-m">M</span>
+            <span class="logo-l">L</span>
+
+        </div>
+
+
+        <p>
+            Despacho de Abogados
+        </p>
+
+
+        <p class="footer-derechos">
+            © 2026 Todos los derechos reservados.
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Testimonios | Despacho de Abogados</title>
+
+    <link rel="stylesheet" href="testimonios.css">
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const abrirTestimonio =
+        document.getElementById("abrirTestimonio");
+
+    const cerrarTestimonio =
+        document.getElementById("cerrarTestimonio");
+
+    const terminosTestimonio =
+        document.getElementById("terminosTestimonio");
+
+    const continuarTestimonio =
+        document.getElementById("continuarTestimonio");
+
+    const aceptarTerminos =
+        document.getElementById("aceptarTerminos");
+
+
+    // ========================================
+    // ABRIR TÉRMINOS
+    // ========================================
+
+    abrirTestimonio.addEventListener("click", function () {
+
+        terminosTestimonio.classList.add("mostrar");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+
+    // ========================================
+    // CERRAR TÉRMINOS
+    // ========================================
+
+    cerrarTestimonio.addEventListener("click", function () {
+
+        terminosTestimonio.classList.remove("mostrar");
+
+        document.body.style.overflow = "";
+
+    });
+
+
+    // ========================================
+    // CONTINUAR
+    // ========================================
+
+    continuarTestimonio.addEventListener("click", function () {
+
+        if (!aceptarTerminos.checked) {
+
+            alert(
+                "Debes leer y aceptar los términos antes de continuar."
+            );
+
+            return;
+
+        }
+
+
+        /*
+         * Por ahora solamente mostramos un aviso.
+         * En el siguiente paso agregaremos la
+         * verificación mediante folio.
+         */
+
+        alert(
+            "Términos aceptados. Ahora continuaremos con la verificación de tu folio."
+        );
+
+    });
+
+});
+
+</script>
+
+<body>
+
+    <!-- ================= ENCABEZADO ================= -->
+
+    <header class="encabezado">
+
+        <div class="logo">
+
+            <span class="logo-m">M</span>
+            <span class="logo-l">L</span>
+
+        </div>
+
+        <nav class="navegacion">
+
+            <a href="index.html">Inicio</a>
+
+            <a href="sobrenosotros.html">Sobre nosotros</a>
+
+            <a href="serviciosnuestros.html">Servicios</a>
+
+            <a href="testimonios.html" class="activo">Testimonios</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= PRESENTACIÓN ================= -->
+
+    <main>
+
+        <section class="presentacion-testimonios">
+
+            <p class="subtitulo">LA EXPERIENCIA DE NUESTROS CLIENTES</p>
+
+            <h1>Testimonios</h1>
+
+            <p class="descripcion">
+
+                La confianza de nuestros clientes es parte fundamental
+                de nuestro trabajo. Conoce algunas de las experiencias
+                de quienes han recibido acompañamiento y asesoría legal
+                con nosotros.
+
+            </p>
+
+        </section>
+
+
+        <!-- ================= TESTIMONIOS ================= -->
+
+        <section class="seccion-testimonios">
+
+            <div class="testimonio">
+
+                <div class="cliente">
+                    <div class="estrellas">
+    ★★★★★
+</div>
+
+                    <div class="iniciales">JG</div>
+
+                    <div>
+
+                        <h2>J. G.</h2>
+
+                        
+
+                    </div>
+
+                </div>
+
+                <p class="texto-testimonio">
+
+                    "Recibí una atención clara y profesional durante todo
+                    el proceso. Me explicaron cada paso y pude resolver
+                    mis dudas antes de tomar cualquier decisión."
+
+                </p>
+
+            </div>
+
+
+            <div class="testimonio">
+                <div class="estrellas">
+    ★★★★★
+</div>
+
+                <div class="cliente">
+
+                    <div class="iniciales">AM</div>
+
+                    <div>
+
+                        <h2>A. M.</h2>
+
+                        
+
+                    </div>
+
+                </div>
+
+                <p class="texto-testimonio">
+
+                    "Desde la primera consulta tuve la oportunidad de
+                    explicar mi situación y recibir orientación sobre
+                    las alternativas disponibles."
+
+                </p>
+
+            </div>
+
+
+            <div class="testimonio">
+
+                <div class="cliente">
+                    <div class="estrellas">
+    ★★★★★
+</div>
+
+                    <div class="iniciales">RC</div>
+
+                    <div>
+
+                        <h2>R. C.</h2>
+
+                        
+
+                    </div>
+
+                </div>
+
+                <p class="texto-testimonio">
+
+                    "La atención fue respetuosa y ordenada. Me ayudaron
+                    a comprender mejor mi situación y los pasos que
+                    podía seguir."
+
+                </p>
+
+            </div>
+
+
+            <div class="testimonio">
+
+                <div class="cliente">
+                    <div class="estrellas">
+    ★★★★★
+</div>
+
+                    <div class="iniciales">LP</div>
+
+                    <div>
+
+                        <h2>L. P.</h2>
+
+                        
+
+                    </div>
+
+                </div>
+
+                <p class="texto-testimonio">
+
+                    "Agradezco la disposición para escuchar mi caso y
+                    explicar las opciones de una manera sencilla y
+                    comprensible."
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CIERRE ================= -->
+
+        <section class="llamada-accion">
+
+           <div class="botones-cierre">
+
+    <a href="serviciosnuestros.html" class="boton-asesoria">
+        Solicitar asesoría
+    </a>
+
+    <button type="button" class="boton-testimonio" id="abrirTestimonio">
+        Dejar un testimonio
+    </button>
+
+</div>
+        </section>
+
+        <!-- ================= TÉRMINOS PARA TESTIMONIO ================= -->
+
+<section class="terminos-testimonio" id="terminosTestimonio">
+
+    <div class="tarjeta-terminos">
+
+        <p class="subtitulo">
+            <h1>Términos y condiciones para el envío y publicación de testimonios</h1>
+        </p>
+
+        <h2>
+            Antes de continuar
+        </h2>
+
+        <p>
+            Para enviar un testimonio será necesario verificar
+            que la persona haya recibido atención o asesoría
+            por parte del despacho mediante su folio de solicitud.
+        </p>
+
+        <p>
+            Términos y condiciones para el envío y publicación de testimonios<br>
+
+Al enviar un testimonio, la persona usuaria declara que la información proporcionada corresponde a su propia experiencia y que cuenta con autorización para compartirla.<br>
+
+1. Verificación del usuario
+Para enviar un testimonio será necesario proporcionar y verificar el folio correspondiente a una solicitud o atención registrada ante el despacho. La verificación tiene como finalidad confirmar que el testimonio proviene de una persona relacionada con el servicio señalado y evitar publicaciones fraudulentas.<br>
+
+2. Autorización de publicación
+El envío de un testimonio no implica su publicación automática. El despacho podrá revisar previamente el contenido y decidir si cumple con los presentes términos.
+
+La publicación requerirá autorización expresa de la persona usuaria. Esta autorización se limita a la publicación del testimonio en los medios digitales oficiales del despacho, conforme a la opción de identidad seleccionada por la persona usuaria.<br>
+
+3. Forma de identificación
+La persona usuaria podrá elegir entre:<br>
+
+Publicar utilizando únicamente sus iniciales.<br>
+Publicar de forma anónima.<br><br>
+
+El despacho no publicará el nombre completo de la persona como parte del testimonio cuando ésta haya elegido utilizar iniciales o permanecer anónima.<br>
+
+4. Revisión del contenido
+El despacho podrá rechazar, retirar o solicitar modificaciones a testimonios que contengan información falsa, ofensiva, ilegal, datos personales de terceros, información confidencial, contenido que pueda afectar derechos de otras personas o cualquier material que no sea apropiado para su publicación.
+
+La revisión podrá incluir correcciones de ortografía, redacción y formato, procurando no alterar el sentido de la experiencia expresada por la persona usuaria.<br>
+
+5. Información confidencial
+La persona usuaria se compromete a no incluir en su testimonio información confidencial de su propio expediente, datos personales de terceros, documentos, números de identificación, domicilios, teléfonos, información médica, información financiera o cualquier otro dato cuya publicación pueda afectar derechos de terceros.<br>
+
+6. Retiro del testimonio
+La persona que haya autorizado la publicación podrá solicitar posteriormente el retiro de su testimonio mediante los medios de contacto establecidos por el despacho. La solicitud será atendida conforme a la legislación aplicable y a las condiciones del aviso de privacidad.<br>
+
+7. Protección de datos personales
+Los datos personales proporcionados durante el proceso de verificación y envío serán tratados únicamente para las finalidades informadas por el despacho y conforme a su Aviso de Privacidad. La persona titular podrá ejercer los derechos que le correspondan respecto de sus datos personales conforme a la legislación aplicable.<br>
+
+8. Publicación
+El envío de un testimonio no garantiza su publicación. El despacho podrá determinar que un testimonio no sea publicado cuando no cumpla con estos términos o cuando existan razones relacionadas con la protección de la privacidad, seguridad, derechos de terceros o integridad del sitio.
+<br>
+9. Responsabilidad sobre el contenido
+La persona usuaria será responsable de que el contenido que proporcione sea veraz respecto de su propia experiencia y de contar con los derechos o autorizaciones necesarios para incluir cualquier información de terceros.
+<br>
+10. Personas menores de edad
+Cuando resulte legalmente necesario, el envío y publicación de testimonios de personas menores de edad deberá contar con la autorización de quien ejerza legalmente la patria potestad o tutela.
+<br>
+11. Aceptación
+Al marcar la casilla de aceptación y continuar con el proceso, la persona usuaria manifiesta que ha leído estos términos, comprende su contenido y autoriza, de manera expresa, el tratamiento y publicación de su testimonio en los términos seleccionados.
+        </p>
+
+        <p>
+            Podrás elegir cómo deseas aparecer en la publicación:
+        </p>
+
+        <div class="opciones-identidad">
+
+            <label>
+                <input type="radio" name="identidadTestimonio" value="iniciales" checked>
+                Publicar con mis iniciales
+            </label>
+
+            <label>
+                <input type="radio" name="identidadTestimonio" value="anonimo">
+                Prefiero aparecer como anónimo
+            </label>
+
+        </div>
+
+        <label class="aceptar-terminos">
+
+            <input type="checkbox" id="aceptarTerminos">
+
+            <span>
+                He leído y acepto los términos anteriores y
+                autorizo la publicación de mi testimonio.
+            </span>
+
+        </label>
+
+        <div class="acciones-terminos">
+
+            <button type="button" id="continuarTestimonio">
+                Continuar
+            </button>
+
+            <button type="button" id="cerrarTestimonio">
+                Cancelar
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="pie-pagina">
+
+        <p>© 2026 Despacho de Abogados M&L. Todos los derechos reservados.</p>
+
+    </footer>
+
+
+</body>
+
+</html>
+

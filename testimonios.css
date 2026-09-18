@@ -1,0 +1,694 @@
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f7f7f5;
+    color: #172554;
+}
+
+
+/* ================= ENCABEZADO ================= */
+
+.encabezado {
+    width: 100%;
+    height: 90px;
+    background-color: #172554;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 70px;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.logo-m,
+.logo-l {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.logo-m {
+    color: #d4af37;
+}
+
+.logo-l {
+    color: white;
+}
+
+
+/* NAVEGACIÓN */
+
+.navegacion {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.navegacion a {
+    color: white;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    transition: 0.3s;
+}
+
+.navegacion a:hover {
+    color: #d4af37;
+}
+
+.navegacion a.activo {
+    color: #d4af37;
+}
+
+
+/* ================= PRESENTACIÓN ================= */
+
+.presentacion-testimonios {
+    text-align: center;
+
+    padding: 90px 20px 65px;
+
+    max-width: 900px;
+    margin: auto;
+}
+
+.subtitulo {
+    color: #b08d2c;
+
+    font-size: 13px;
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+.presentacion-testimonios h1 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 55px;
+    font-weight: 600;
+
+    color: #172554;
+
+    margin-bottom: 25px;
+}
+
+.descripcion {
+    color: #555;
+
+    font-size: 16px;
+    line-height: 1.8;
+
+    max-width: 720px;
+    margin: auto;
+}
+
+
+/* ================= TESTIMONIOS ================= */
+
+.seccion-testimonios {
+    width: 85%;
+    max-width: 1100px;
+
+    margin: 0 auto 90px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+
+/* TARJETA */
+
+.testimonio {
+    background-color: white;
+
+    padding: 35px;
+
+    border-left: 4px solid #d4af37;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+    transition: 0.3s;
+}
+
+.testimonio:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.11);
+}
+
+
+/* CLIENTE */
+
+.cliente {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.iniciales {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    background-color: #172554;
+    color: #d4af37;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cliente h2 {
+    font-family: 'Playfair Display', serif;
+
+    font-size: 20px;
+
+    color: #172554;
+}
+
+.cliente p {
+    font-size: 12px;
+
+    color: #8a8a8a;
+
+    margin-top: 3px;
+}
+
+
+/* TEXTO */
+
+.texto-testimonio {
+    color: #555;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    font-style: italic;
+}
+
+
+/* ================= LLAMADA A LA ACCIÓN ================= */
+
+.llamada-accion {
+    background-color: #172554;
+
+    text-align: center;
+
+    padding: 75px 20px;
+}
+
+.llamada-accion h2 {
+    font-family: 'Playfair Display', serif;
+
+    color: white;
+
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+.llamada-accion p {
+    color: #d8d8d8;
+
+    max-width: 650px;
+
+    margin: 0 auto 30px;
+
+    line-height: 1.7;
+}
+
+.boton-asesoria {
+    display: inline-block;
+
+    padding: 13px 30px;
+
+    background-color: #d4af37;
+
+    color: #172554;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.boton-asesoria:hover {
+    background-color: white;
+}
+
+
+/* ================= FOOTER ================= */
+
+.pie-pagina {
+    background-color: #0f172a;
+
+    color: #aaa;
+
+    text-align: center;
+
+    padding: 25px 20px;
+
+    font-size: 12px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 800px) {
+
+    .encabezado {
+        padding: 0 25px;
+    }
+
+    .navegacion {
+        gap: 18px;
+    }
+
+    .navegacion a {
+        font-size: 13px;
+    }
+
+    .presentacion-testimonios h1 {
+        font-size: 42px;
+    }
+
+    .seccion-testimonios {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .encabezado {
+        height: auto;
+        padding: 20px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .navegacion {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+
+
+/* ==========================================   VENTANA DE TÉRMINOS========================================== */
+
+.terminos-testimonio {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(7, 26, 61, 0.75);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .3s;
+
+    z-index: 9999;
+
+}
+
+
+.terminos-testimonio.mostrar {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+.tarjeta-terminos {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    padding: 45px;
+
+    border-radius: 10px;
+
+    border-top: 4px solid #c9a227;
+
+    box-shadow: 0 15px 45px rgba(0,0,0,.25);
+
+}
+
+
+.tarjeta-terminos h2 {
+
+    color: #071a3d;
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: 32px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.tarjeta-terminos p {
+
+    color: #5b6472;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 16px;
+
+}
+
+
+.opciones-identidad {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin: 25px 0;
+
+}
+
+
+.opciones-identidad label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #071a3d;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+}
+
+
+.aceptar-terminos {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color: #071a3d;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin-top: 20px;
+
+}
+
+
+.aceptar-terminos input {
+
+    margin-top: 3px;
+
+}
+
+
+.acciones-terminos {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+}
+
+
+.acciones-terminos button {
+
+    padding: 13px 25px;
+
+    border-radius: 5px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+#continuarTestimonio {
+
+    border: none;
+
+    background: #071a3d;
+
+    color: white;
+
+}
+
+
+#continuarTestimonio:hover {
+
+    background: #c9a227;
+
+    color: #071a3d;
+
+}
+
+
+#cerrarTestimonio {
+
+    border: 1px solid #071a3d;
+
+    background: white;
+
+    color: #071a3d;
+
+}
+
+
+#cerrarTestimonio:hover {
+
+    background: #071a3d;
+
+    color: white;
+
+}
+
+
+@media(max-width:600px) {
+
+    .tarjeta-terminos {
+
+        padding: 30px 22px;
+
+    }
+
+
+    .tarjeta-terminos h2 {
+
+        font-size: 27px;
+
+    }
+
+
+    .acciones-terminos {
+
+        flex-direction: column;
+
+    }
+
+
+    .acciones-terminos button {
+
+        width: 100%;
+
+    }
+
+}
+
+/* ==========================================
+   BOTONES DE CIERRE
+========================================== */
+
+.botones-cierre {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+
+/* BOTÓN DEJAR TESTIMONIO */
+
+.boton-testimonio {
+
+    display: inline-block;
+
+    padding: 16px 30px;
+
+    border: 1px solid #c9a227;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+.boton-testimonio:hover {
+
+    background: #c9a227;
+
+    color: #071a3d;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* BOTÓN SOLICITAR ASESORÍA */
+
+.boton-asesoria {
+
+    display: inline-block;
+
+    padding: 16px 30px;
+
+    background: #c9a227;
+
+    color: #071a3d;
+
+    text-decoration: none;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+
+.boton-asesoria:hover {
+
+    background: white;
+
+    color: #071a3d;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:600px) {
+
+    .botones-cierre {
+
+        flex-direction: column;
+
+    }
+
+    .boton-testimonio,
+    .boton-asesoria {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+}

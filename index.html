@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Despacho de Abogados</title>
+
+    <link rel="stylesheet" href="stylesabogacia.css">
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<script>
+
+const acordeones = document.querySelectorAll(".acordeon-item");
+
+
+acordeones.forEach(item => {
+
+    const boton = item.querySelector(".acordeon-titulo");
+    const contenido = item.querySelector(".acordeon-contenido");
+    const icono = item.querySelector(".icono");
+
+
+    boton.addEventListener("click", () => {
+
+
+        const estaActivo = item.classList.contains("activo");
+
+
+        /* Cerrar todos */
+
+        acordeones.forEach(otroItem => {
+
+            otroItem.classList.remove("activo");
+
+            otroItem.querySelector(".acordeon-contenido").style.display = "none";
+
+            otroItem.querySelector(".icono").textContent = "+";
+
+        });
+
+
+        /* Abrir el seleccionado */
+
+        if(!estaActivo){
+
+            item.classList.add("activo");
+
+            contenido.style.display = "block";
+
+            icono.textContent = "−";
+
+        }
+
+    });
+
+});
+
+</script>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+
+                <!-- Cambia esto por tu imagen/logo -->
+                <div class="logo-imagen">
+                    M
+                </div>
+
+                <h2>Despacho de Abogados</h2>
+
+            </div>
+
+
+            <ul class="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="sobrenosotros.html">Sobre nosotros</a></li>
+                <li><a href="serviciosnuestros.html">Servicios</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= PORTADA ================= -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-contenido">
+
+            <h1>AQUÍ ENCUENTRA LA SOLUCIÓN</h1>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= PRIMERA SECCIÓN ================= -->
+
+    <section class="presentacion" id="nosotros">
+
+        <div class="contenedor">
+
+
+            <div class="fila-superior">
+
+                <!-- Texto izquierdo -->
+
+                <div class="titulo-presentacion">
+
+                   <BR> <h2>
+                        Tu tranquilidad legal, en<br>
+                        buenas y serias manos.
+                    </h2>
+
+                </div>
+
+
+                <!-- Texto derecho -->
+
+                <div class="descripcion-presentacion">
+
+                    <p>
+                        En Despacho de Abogados se ofrecen servicios de abogacía
+                        y asesoría legal totalmente personalizados, diseñados para
+                        proteger tus derechos con firmeza, aportarte claridad en las
+                        situaciones más complejas y ayudarte a tomar decisiones
+                        legales y estratégicas.
+                    </p>
+<BR> 
+                    <p>
+                        <h3> TRANQUILIDAD QUE MERECES.</h3>
+                    </p>
+
+
+                    <a href="serviciosnuestros.html" class="boton">
+                        Contacto
+                    </a>
+
+                </div>
+
+            </div>
+<BR>
+    <BR><BR> <BR><BR> <BR><BR> <BR> 
+
+    </section>
+<!-- ================= SEGUNDA SECCIÓN ================= -->
+
+<section class="apartado imagen-presentacion">
+
+    <!-- Imagen -->
+
+    <div class="imagen-presentacion">
+
+        <img src="imagenes/Images.png" alt="Asesoría legal">
+
+    </div>
+
+</section>
+
+    <!-- ================= TERCERA SECCIÓN ================= -->
+
+    <!-- ================= SERVICIOS ================= -->
+
+<section class="asesoria" id="servicios">
+
+    <div class="contenedor asesoria-contenedor">
+
+        <!-- Título izquierdo -->
+
+        <div class="asesoria-titulo">
+
+            <h2>Asesoría Legal</h2><br><h2>Integral</h2>
+
+        </div>
+
+
+        <!-- Contenido derecho -->
+
+        <div class="asesoria-contenido">
+
+            <p class="asesoria-descripcion">
+                En nuestro despacho de abogados ofrecemos asesoría legal integral y
+                representación jurídica personalizada para particulares y empresas.
+                Nos especializamos en la defensa de los intereses de nuestros clientes,
+                brindando soluciones eficaces y adaptadas a cada caso. Nuestro equipo
+                combina experiencia, rigor y compromiso para garantizar un servicio
+                jurídico de calidad.
+            </p>
+
+
+            <!-- ACORDEÓN -->
+
+            <div class="acordeon">
+
+
+                <!-- SERVICIO 1 -->
+
+                <div class="acordeon-item">
+
+                    <button class="acordeon-titulo">
+                        <span>1. Asesoría legal integral</span>
+                        <span class="icono">−</span>
+                    </button>
+
+                    <div class="acordeon-contenido">
+
+                        <p>
+                            Ofrecemos asesoría legal integral orientada a prevenir
+                            conflictos y resolverlos de forma eficaz. Analizamos tu
+                            situación jurídica de manera formal, diseñamos estrategias
+                            personalizadas y te acompañamos en cada etapa del proceso,
+                            ya sea en la redacción y revisión de contratos, gestiones
+                            administrativas, reclamaciones extrajudiciales o defensa
+                            ante tribunales.
+                        </p>
+
+                        <p>
+                            Nuestro enfoque combina rigor técnico, claridad en las
+                            explicaciones y cercanía, para que comprendas tus opciones
+                            y puedas tomar decisiones informadas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERVICIO 2 -->
+
+                <div class="acordeon-item">
+
+                    <button class="acordeon-titulo">
+                        <span>2. Defensa en juicios</span>
+                        <span class="icono">−</span>
+                    </button>
+
+                    <div class="acordeon-contenido">
+
+                        <p>
+                            Ofrecemos un servicio de defensa en juicios sólido,
+                            estratégico y personalizado, orientado a proteger tus
+                            derechos en todas las etapas del proceso.
+                        </p>
+
+                        <p>
+                            Analizamos minuciosamente el expediente, reunimos pruebas,
+                            preparamos testimonios y diseñamos la mejor estrategia
+                            jurídica para tu caso.
+                        </p>
+
+                        <p>
+                            Ya sea en materia civil, penal, laboral, administrativa
+                            o familiar, te acompañamos en audiencias, negociaciones y
+                            recursos, explicando cada paso con claridad.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SERVICIO 3 -->
+
+                <div class="acordeon-item">
+
+                    <button class="acordeon-titulo">
+                        <span>3. Redacción y revisión de contratos</span>
+                        <span class="icono">−</span>
+                    </button>
+
+                    <div class="acordeon-contenido">
+
+                        <p>
+                            Ofrecemos servicios de redacción y revisión de contratos
+                            para asegurar acuerdos claros, completos y legalmente
+                            sólidos.
+                        </p>
+
+                        <p>
+                            Analizamos tus necesidades y elaboramos cláusulas a medida,
+                            revisando contratos existentes para detectar riesgos,
+                            ambigüedades o vacíos legales.
+                        </p>
+
+                        <p>
+                            Nuestro equipo utiliza un lenguaje jurídico claro y preciso,
+                            buscando proteger tus intereses y reducir futuros conflictos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <a href="serviciosnuestros.html" class="todos-servicios">
+                Todos los servicios
+                <span>❯</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= OPINIONES ================= -->
+
+<section class="opiniones" id="testimonios">
+
+    <div class="opiniones-contenedor">
+
+        <h2>TESTIMONIOS</h2>
+
+        <p class="opiniones-subtitulo">
+            Conoce acerca de los testimonios y comentarios de las personas que hemos podido ayudar.
+        </p>
+
+
+        
+
+
+        <a href="testimonios.html" class="boton-testimonios">
+            Testimonios
+            <span>→</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CONTACTO FINAL ================= -->
+
+<section class="contacto-final">
+
+    <div class="contacto-overlay"></div>
+
+    <div class="contacto-final-contenido">
+
+        <h2>¿Necesitas hablar con nosotros?</h2>
+
+        <div class="linea-contacto"></div>
+
+        <a href="contacto.html" class="boton-contacto-final">
+           Ponte en Contacto
+        </a>
+
+    </div>
+
+</section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contacto">
+
+    <h3>Despacho de Abogados</h3>
+
+    <p>
+        Comprometidos con tu tranquilidad y seguridad jurídica.
+    </p>
+
+</footer>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const acordeones = document.querySelectorAll(".acordeon-item");
+
+    acordeones.forEach(function(item) {
+
+        const boton = item.querySelector(".acordeon-titulo");
+
+        boton.addEventListener("click", function() {
+
+            const estaActivo = item.classList.contains("activo");
+
+
+            acordeones.forEach(function(otroItem) {
+
+                otroItem.classList.remove("activo");
+
+                const icono = otroItem.querySelector(".icono");
+
+                icono.textContent = "+";
+
+            });
+
+
+            if (!estaActivo) {
+
+                item.classList.add("activo");
+
+                const icono = item.querySelector(".icono");
+
+                icono.textContent = "−";
+
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

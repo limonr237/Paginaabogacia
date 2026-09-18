@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solicitud de Asesoría Legal</title>
+
+    <link rel="stylesheet" href="stylecita.css">
+
+    
+</head>
+<script>
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const formulario = document.getElementById("formularioCita");
+
+    const calendario = document.getElementById("fechaCita");
+
+    const campoHora = document.getElementById("horaCita");
+
+    const botonesHorario =
+        document.querySelectorAll(".horario-cita");
+
+    const mensajeHorario =
+        document.getElementById("mensajeHorario");
+
+
+    // ========================================
+    // FECHA DE HOY
+    // ========================================
+
+    const hoy = new Date();
+
+    const año = hoy.getFullYear();
+
+    const mes =
+        String(hoy.getMonth() + 1).padStart(2, "0");
+
+    const dia =
+        String(hoy.getDate()).padStart(2, "0");
+
+    const fechaHoy =
+        `${año}-${mes}-${dia}`;
+
+
+    // ========================================
+    // BLOQUEAR FECHAS ANTERIORES
+    // ========================================
+
+    calendario.min = fechaHoy;
+
+
+    // ========================================
+    // SELECCIONAR HORARIO
+    // ========================================
+
+    botonesHorario.forEach(function(boton) {
+
+        boton.addEventListener("click", function(event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+
+            // Primero seleccionar fecha
+            if (calendario.value === "") {
+
+                mensajeHorario.textContent =
+                    "Primero selecciona el día de tu cita.";
+
+                mensajeHorario.style.color =
+                    "#b08a00";
+
+                calendario.focus();
+
+                return;
+            }
+
+
+            // Verificar fecha
+            if (calendario.value < fechaHoy) {
+
+                calendario.value = "";
+
+                campoHora.value = "";
+
+                botonesHorario.forEach(function(b) {
+                    b.classList.remove("seleccionado");
+                });
+
+                mensajeHorario.textContent =
+                    "No puedes seleccionar una fecha anterior a hoy.";
+
+                mensajeHorario.style.color =
+                    "#b08a00";
+
+                return;
+            }
+
+
+            // Quitar selección anterior
+            botonesHorario.forEach(function(b) {
+
+                b.classList.remove("seleccionado");
+
+            });
+
+
+            // Marcar botón seleccionado
+            boton.classList.add("seleccionado");
+
+
+            // Guardar hora
+            campoHora.value =
+                boton.getAttribute("data-hora");
+
+
+            // Mostrar mensaje
+            mensajeHorario.textContent =
+                "Horario seleccionado: " +
+                boton.textContent;
+
+            mensajeHorario.style.color =
+                "#071a3d";
+
+        });
+
+    });
+
+
+    // ========================================
+    // CAMBIAR FECHA
+    // ========================================
+
+    calendario.addEventListener("change", function() {
+
+        if (calendario.value < fechaHoy) {
+
+            calendario.value = "";
+
+            campoHora.value = "";
+
+            botonesHorario.forEach(function(boton) {
+
+                boton.classList.remove("seleccionado");
+
+            });
+
+            mensajeHorario.textContent =
+                "No puedes seleccionar una fecha anterior a hoy.";
+
+            mensajeHorario.style.color =
+                "#b08a00";
+
+            return;
+        }
+
+
+        // Al cambiar de día se reinicia el horario
+        campoHora.value = "";
+
+        botonesHorario.forEach(function(boton) {
+
+            boton.classList.remove("seleccionado");
+
+        });
+
+
+        mensajeHorario.textContent =
+            "Selecciona un horario disponible.";
+
+        mensajeHorario.style.color =
+            "#697386";
+
+    });
+
+
+    // ========================================
+    // ENVIAR FORMULARIO
+    // ========================================
+
+    formulario.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        // Validar campos normales
+        if (!formulario.checkValidity()) {
+
+            formulario.reportValidity();
+
+            return;
+        }
+
+
+        // Validar fecha
+        if (calendario.value === "") {
+
+            alert(
+                "Por favor selecciona una fecha para tu cita."
+            );
+
+            calendario.focus();
+
+            return;
+        }
+
+
+        if (calendario.value < fechaHoy) {
+
+            alert(
+                "No puedes seleccionar una fecha anterior a hoy."
+            );
+
+            return;
+        }
+
+
+        // Validar horario
+        if (campoHora.value === "") {
+
+            alert(
+                "Por favor selecciona un horario para tu cita."
+            );
+
+            return;
+        }
+
+
+        // ========================================
+        // DATOS
+        // ========================================
+
+        const nombre =
+            document.getElementById("nombreCompleto").value.trim();
+
+        const fechaNacimiento =
+            document.getElementById("fechaNacimiento").value;
+
+
+        // ========================================
+        // GENERAR INICIALES
+        // ========================================
+
+        const palabras =
+            nombre.split(/\s+/);
+
+        let iniciales = "";
+
+        palabras.forEach(function(palabra) {
+
+            if (palabra.length > 0) {
+
+                iniciales +=
+                    palabra.charAt(0).toUpperCase();
+
+            }
+
+        });
+
+
+        // ========================================
+        // FECHA DE NACIMIENTO
+        // ========================================
+
+        const partesNacimiento =
+            fechaNacimiento.split("-");
+
+        const mesNacimiento =
+            partesNacimiento[1];
+
+        const diaNacimiento =
+            partesNacimiento[2];
+
+        const fechaNacimientoFolio =
+            diaNacimiento + mesNacimiento;
+
+
+        // ========================================
+        // FECHA DE GENERACIÓN
+        // ========================================
+
+        const fechaGeneracion =
+            dia +
+            mes +
+            String(año).slice(-2);
+
+
+        // ========================================
+        // CONSECUTIVO
+        // ========================================
+
+        let consecutivo =
+            localStorage.getItem("consecutivoFolio");
+
+
+        if (consecutivo === null) {
+
+            consecutivo = 1;
+
+        } else {
+
+            consecutivo =
+                parseInt(consecutivo) + 1;
+
+        }
+
+
+        localStorage.setItem(
+            "consecutivoFolio",
+            consecutivo
+        );
+
+
+        const numeroConsecutivo =
+            String(consecutivo).padStart(3, "0");
+
+
+        // ========================================
+        // GENERAR FOLIO
+        // ========================================
+
+        const folio =
+            "ML-" +
+            iniciales +
+            "-" +
+            fechaNacimientoFolio +
+            "-" +
+            fechaGeneracion +
+            "-" +
+            numeroConsecutivo;
+
+
+        // ========================================
+        // GUARDAR DATOS
+        // ========================================
+
+        localStorage.setItem(
+            "folioActual",
+            folio
+        );
+
+        localStorage.setItem(
+            "nombreCita",
+            nombre
+        );
+
+        localStorage.setItem(
+            "correoCita",
+            document.getElementById("correo").value
+        );
+
+        localStorage.setItem(
+            "telefonoCita",
+            document.getElementById("telefono").value
+        );
+
+        localStorage.setItem(
+            "fechaNacimientoCita",
+            fechaNacimiento
+        );
+
+       
+
+        localStorage.setItem(
+            "descripcionCita",
+            document.getElementById("descripcion").value
+        );
+
+        localStorage.setItem(
+            "fechaCita",
+            calendario.value
+        );
+
+        localStorage.setItem(
+            "horaCita",
+            campoHora.value
+        );
+
+
+        // ========================================
+        // IR A ENTREGA DE FOLIO
+        // ========================================
+
+        window.location.href =
+            "entregadefolio.html";
+
+    });
+
+});
+
+</script>
+
+
+<body>
+
+
+    <!-- ================= ENCABEZADO ================= -->
+
+    <header class="encabezado">
+
+        <div class="logo">
+
+            <span class="logo-m">M</span>
+
+            <span class="logo-l">L</span>
+
+        </div>
+
+
+        <nav class="navegacion">
+
+            <a href="index.html">Inicio</a>
+
+            <a href="sobrenosotros.html">Sobre nosotros</a>
+
+            <a href="serviciosnuestros.html" class="activo">Servicios</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= CONTENIDO ================= -->
+
+    <main class="pagina-cita">
+
+
+        <section class="encabezado-cita">
+
+            <p class="subtitulo-cita">
+                ASESORÍA PROFESIONAL
+            </p>
+
+            <h1>
+                Solicitud de Asesoría Legal
+            </h1>
+
+            <p class="descripcion-cita">
+                Completa el siguiente formulario con tus datos para solicitar una cita
+                de asesoría legal.
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= FORMULARIO ================= -->
+
+        <section class="contenedor-formulario">
+
+
+            <form id="formularioCita">
+
+
+                <!-- NOMBRE -->
+
+                <div class="campo-formulario">
+
+                    <label for="nombreCompleto">
+                        Nombre completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombreCompleto"
+                        name="nombreCompleto"
+                        placeholder="Escribe tu nombre completo"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CORREO -->
+
+                <div class="campo-formulario">
+
+                    <label for="correo">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="ejemplo@correo.com"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- TIPO DE CONTACTO -->
+
+                <div class="campo-formulario">
+
+                    <label for="tipoContacto">
+                        Medio de contacto
+                    </label>
+
+                    <select
+                        id="tipoContacto"
+                        name="tipoContacto"
+                        required
+                    >
+
+                        <option value="">
+                            Selecciona una opción
+                        </option>
+
+                        <option value="telefono">
+                            Teléfono
+                        </option>
+
+                        <option value="whatsapp">
+                            WhatsApp
+                        </option>
+
+                        <option value="ambos">
+                            Teléfono y WhatsApp
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- NUMERO TELEFONICO -->
+
+                <div class="campo-formulario">
+
+                    <label for="telefono">
+                        Número telefónico
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="55 0000 0000"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- FECHA DE NACIMIENTO -->
+
+                <div class="campo-formulario">
+
+                    <label for="fechaNacimiento">
+                        Fecha de nacimiento
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fechaNacimiento"
+                        name="fechaNacimiento"
+                        required
+                    >
+
+                </div>
+
+<!-- FECHA Y HORA DE LA CITA -->
+
+<div class="campo-formulario">
+    <label for="fechaCita">Fecha de la cita</label>
+
+    <div class="calendario-cita">
+        <input type="date" id="fechaCita" name="fechaCita" required>
+    </div>
+</div>
+
+<div class="campo-formulario">
+    <label>Horario de la cita</label>
+
+    <div class="horarios-cita">
+
+        <button type="button" class="horario-cita" data-hora="09:00">9:00 AM</button>
+        <button type="button" class="horario-cita" data-hora="10:00">10:00 AM</button>
+        <button type="button" class="horario-cita" data-hora="11:00">11:00 AM</button>
+        <button type="button" class="horario-cita" data-hora="12:00">12:00 PM</button>
+        <button type="button" class="horario-cita" data-hora="13:00">1:00 PM</button>
+        <button type="button" class="horario-cita" data-hora="14:00">2:00 PM</button>
+        <button type="button" class="horario-cita" data-hora="15:00">3:00 PM</button>
+        <button type="button" class="horario-cita" data-hora="16:00">4:00 PM</button>
+        <button type="button" class="horario-cita" data-hora="17:00">5:00 PM</button>
+        <button type="button" class="horario-cita" data-hora="18:00">6:00 PM</button>
+        <button type="button" class="horario-cita" data-hora="19:00">7:00 PM</button>
+
+    </div>
+
+    <input type="hidden" id="horaCita" name="horaCita" required>
+
+    <p id="mensajeHorario" class="mensaje-horario">
+        Selecciona un horario disponible.
+    </p>
+</div>
+
+
+
+
+
+                <!-- DESCRIPCION -->
+
+                <div class="campo-formulario">
+
+                    <label for="descripcion">
+                        Breve descripción del asunto
+                    </label>
+
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        rows="5"
+                        placeholder="Cuéntanos brevemente sobre el motivo de tu consulta..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- BOTON -->
+
+                <div class="boton-formulario">
+
+                    <button type="submit">
+                        Solicitar cita
+                         
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= PIE DE PAGINA ================= -->
+
+    <footer class="pie-pagina">
+
+        <p>
+            © 2026 Despacho de Abogados. Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+
